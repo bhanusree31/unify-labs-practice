@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevConf 2026 - Registration</title>
+</head>
+<body>
+  <header>
+    <h1>Registration Portal</h1>
+    <nav>
+      <a href="index.html">Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Reserve Your Spot</h2>
+      <form action="#" method="POST">
+        <!-- Text & Email Inputs -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="name">Full Name:</label><br>
+          <input type="text" id="name" name="name" required placeholder="Ex: John Doe">
+          <br><br>
+          <label for="email">Work Email:</label><br>
+          <input type="email" id="email" name="email" required placeholder="john@company.com">
+        </fieldset>
+
+        <!-- Selection & Radio Inputs -->
+        <fieldset>
+          <legend>Ticket Details</legend>
+          <p>Select Attendance Type:</p>
+          <input type="radio" id="phys" name="type" value="physical" checked>
+          <label for="phys">In-person (Hyderabad)</label><br>
+          <input type="radio" id="virt" name="type" value="virtual">
+          <label for="virt">Virtual Pass</label>
+          <br><br>
+          <label for="track">Interest Track:</label><br>
+          <select id="track" name="track">
+            <option value="ai">Artificial Intelligence</option>
+            <option value="web">Web Fullstack</option>
+            <option value="cloud">Cloud Native</option>
+          </select>
+        </fieldset>
+
+        <!-- Checkbox -->
+        <br>
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the code of conduct</label>
+        
+        <br><br>
+        <button type="submit">Submit Registration</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
