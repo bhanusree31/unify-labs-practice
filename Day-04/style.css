@@ -1,0 +1,167 @@
+/* Day 4: Advanced Layout - DevConf Phase 2 */
+:root {
+  --primary: #f97316;
+  --dark: #111827;
+  --gray: #4b5563;
+  --bg-light: #f9fafb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--bg-light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* FLEXBOX: Navigation Layout */
+.sticky-nav {
+  position: sticky; /* Positioning Concept */
+  top: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); /* Shadow Concept */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+}
+
+.flex-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.flex-menu a {
+  text-decoration: none;
+  color: var(--gray);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.flex-menu a.active, .flex-menu a:hover {
+  color: var(--primary);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.logo span { color: var(--primary); }
+
+/* GRADIENT HERO */
+.gradient-hero {
+  background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.primary { background: var(--primary); color: white; }
+.btn.secondary { border: 1px solid white; color: white; }
+
+/* GRID: Highlight Cards & Speaker Grid */
+.grid-layout, .speaker-grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.grid-layout {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.speaker-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.info-card, .speaker-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.image-wrapper img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  margin-bottom: 20px;
+}
+
+.badg {
+  background: #ffedd5;
+  color: #9a3412;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+/* POSITIONING: Timeline for Schedule */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.time-item {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.time-marker {
+  font-weight: 800;
+  color: var(--primary);
+  min-width: 80px;
+}
+
+.header-title {
+  text-align: center;
+  padding-top: 60px;
+  font-size: 2.5rem;
+}
+
+.main-shell {
+  min-height: 80vh;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px;
+  background: var(--dark);
+  color: #94a3b8;
+}
