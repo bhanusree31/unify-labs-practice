@@ -1,0 +1,59 @@
+/* General reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    /* Default layout for large screens: two columns, one with 2 parts width, one with 1 part width */
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr auto; /* Header, main/sidebar content, footer */
+    grid-template-areas: 
+        "header header"
+        "main aside"
+        "footer footer";
+    gap: 20px; /* Advanced: use gap for spacing instead of margins */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header, main, aside, footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+header { grid-area: header; }
+main { grid-area: main; background-color: #007bff; }
+aside { grid-area: aside; background-color: #28a745; }
+footer { grid-area: footer; }
+
+/* Media Query for screens smaller than 768px (common tablet breakpoint) */
+@media screen and (max-width: 768px) {
+    .container {
+        /* On small screens, switch to a single column layout */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+
+    /* Example of a responsive image */
+    img {
+        max-width: 100%; /* Ensures image scales down with the viewport */
+        height: auto; /* Maintains aspect ratio */
+    }
+}
