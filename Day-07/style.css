@@ -1,0 +1,49 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=JetBrains+Mono:wght@700&display=swap');
+
+    :root {
+        --bg: #ffffff; --text: #000000; --muted: #666666; --accent: #6366f1; --border: #eeeeee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); }
+
+    .navbar { height: 80px; padding: 0 40px; border-bottom: 2px solid #000; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: white; z-index: 1000; }
+    .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+    .brand span { color: var(--accent); margin-left: 5px; font-family: 'JetBrains Mono'; font-size: 0.7rem; }
+
+    .nav-links { display: flex; gap: 30px; height: 100%; align-items: center; }
+    .nav-item { text-decoration: none; color: #000; font-size: 0.8rem; font-weight: 700; cursor: pointer; height: 100%; display: flex; align-items: center; position: relative; }
+    
+    .mega-menu { position: absolute; top: 80px; left: 50%; transform: translateX(-50%) translateY(20px); width: 600px; background: white; border: 2px solid #000; padding: 40px; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 20px 20px 0 #000; }
+    .mega-trigger:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .mega-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .mega-col h4 { font-size: 0.65rem; color: #aaa; margin-bottom: 15px; text-transform: uppercase; }
+    .mega-col a { display: block; text-decoration: none; color: #000; font-size: 0.8rem; margin-bottom: 10px; font-weight: 600; }
+    .mega-col a:hover { color: var(--accent); }
+
+    .nav-actions { display: flex; gap: 20px; align-items: center; }
+    .search-btn { font-family: 'JetBrains Mono'; font-size: 0.65rem; color: #888; border: 1px solid #ddd; padding: 8px 15px; border-radius: 5px; }
+    .cart-pill { font-weight: 800; font-size: 0.75rem; }
+
+    .system-shell { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+    .hero-layer { margin-bottom: 100px; max-width: 700px; }
+    .hero-layer h1 { font-size: 4rem; weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 30px; }
+    .hero-layer h1 span { color: var(--accent); }
+    .hero-layer p { font-size: 1.2rem; color: #555; margin-bottom: 40px; line-height: 1.6; }
+    
+    .btn-primary { padding: 15px 35px; background: #000; color: #fff; font-weight: 800; border-radius: 10px; cursor: pointer; }
+    .btn-secondary { padding: 15px 35px; background: none; border: 2px solid #000; font-weight: 800; border-radius: 10px; margin-left: 15px; cursor: pointer; }
+
+    .component-lab { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .lab-card { border: 1px solid #eee; border-radius: 20px; overflow: hidden; transition: 0.3s; }
+    .lab-card:hover { transform: translateY(-10px); box-shadow: 0 40px 80px rgba(0,0,0,0.05); }
+    .card-visual { height: 300px; background: #f5f5f5; }
+    .card-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .card-body { padding: 30px; }
+    .card-body span { font-family: 'JetBrains Mono'; font-size: 0.65rem; color: var(--accent); }
+    .card-body h3 { font-size: 1.5rem; margin: 10px 0; }
+    .card-body p { color: #666; font-size: 0.9rem; }
+
+    .system-footer { margin-top: 100px; border-top: 2px solid #000; padding: 40px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #aaa; }
+    
