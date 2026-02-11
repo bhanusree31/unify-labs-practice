@@ -1,0 +1,48 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap');
+
+    :root {
+        --bg: #0a0a0a; --accent: #ff4d00; --text: #f0f0f0;
+        --f-head: 'Space Grotesk', sans-serif; --f-serif: 'Playfair Display', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--f-head); background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; }
+
+    .portfolio-header { padding: 30px 40px; display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; border-bottom: 1px solid #222; position: sticky; top: 0; background: rgba(10,10,10,0.8); backdrop-filter: blur(10px); z-index: 100; }
+    .h-status { color: var(--accent); position: relative; padding-left: 15px; }
+    .h-status::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+    .hero-creative { height: 85vh; display: flex; align-items: center; padding: 0 10%; position: relative; }
+    .hero-text h1 { font-size: 6rem; line-height: 0.9; weight: 700; letter-spacing: -3px; }
+    .hero-text h1 span { font-family: var(--f-serif); font-weight: 400; font-style: italic; color: transparent; -webkit-text-stroke: 1px white; }
+    .hero-text p { font-size: 1.5rem; color: #888; margin-top: 40px; max-width: 600px; }
+    .hero-scroll { position: absolute; bottom: 40px; right: 40px; font-size: 0.7rem; color: #444; }
+
+    .marquee-section { background: var(--accent); color: #000; overflow: hidden; padding: 20px 0; border-top: 1px solid #000; border-bottom: 1px solid #000; }
+    .marquee-track { display: flex; white-space: nowrap; animation: marquee-kf 20s linear infinite; }
+    .marquee-track span { font-size: 2rem; font-weight: 700; padding: 0 20px; }
+    @keyframes marquee-kf { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .project-asym { padding: 100px 10%; display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px; }
+    .p-card { position: relative; }
+    .p-1 { grid-column: 1 / span 7; }
+    .p-2 { grid-column: 8 / span 5; margin-top: 150px; }
+    .p-visual { width: 100%; height: 500px; overflow: hidden; background: #222; }
+    .p-visual img { width: 100%; height: 100%; object-fit: cover; transition: 1s; opacity: 0.8; }
+    .p-card:hover img { transform: scale(1.05); opacity: 1; }
+    .p-info { margin-top: 20px; }
+    .p-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
+    .p-info p { color: #666; font-size: 0.9rem; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 100px 10%; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+    .metric { text-align: center; }
+    .m-val { font-size: 3rem; font-weight: 700; }
+    .m-lab { font-size: 0.7rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+
+    .portfolio-footer { padding: 60px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #222; }
+    .f-copy { font-size: 0.7rem; color: #444; }
+    .f-social { display: flex; gap: 30px; }
+    .f-social a { text-decoration: none; color: #888; font-size: 0.7rem; }
+    .f-social a:hover { color: white; }
+    
