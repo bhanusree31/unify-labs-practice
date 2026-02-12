@@ -1,0 +1,50 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400&family=Syncopate:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+    :root {
+        --bg: #fdfdfc; --text: #0a0a09; --muted: #6b6b66; --accent: #d4a373;
+        --f-serif: 'Bodoni Moda', serif; --f-sans: 'Inter', sans-serif; --f-mark: 'Syncopate', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--f-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    .master-header { border-bottom: 2px solid #000; padding: 0 40px; background: white; position: sticky; top: 0; z-index: 100; }
+    .h-line { padding: 10px 0; font-family: monospace; font-size: 0.7rem; border-bottom: 1px solid #eee; }
+    .h-main { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee; }
+    .brand { font-family: var(--f-serif); font-size: 3rem; font-weight: 900; letter-spacing: -2px; }
+    .h-side { font-family: var(--f-mark); font-size: 0.6rem; width: 100px; }
+    .pill-nav { display: flex; gap: 30px; padding: 15px 0; justify-content: center; }
+    .pill-nav a { text-decoration: none; color: #000; font-size: 0.7rem; font-weight: 700; }
+
+    .editorial-grid { padding: 40px; }
+    .feature-cover { height: 80vh; position: relative; margin-bottom: 100px; }
+    .visual-canvas { height: 100%; position: relative; overflow: hidden; }
+    .visual-canvas img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
+    .visual-canvas:hover img { transform: scale(1.05); }
+
+    .overlap-card { position: absolute; bottom: -40px; left: 60px; width: 400px; background: white; padding: 50px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+    .divider { width: 40px; height: 3px; background: var(--accent); margin-bottom: 20px; }
+    .overlap-card h2 { font-family: var(--f-serif); font-size: 3rem; line-height: 0.9; margin-bottom: 20px; }
+    .overlap-card h2 span { font-style: italic; font-weight: 400; color: var(--muted); }
+    .overlap-card p { font-size: 0.95rem; color: var(--muted); }
+    .card-meta { margin-top: 30px; font-family: monospace; font-size: 0.65rem; border-top: 1px solid #eee; padding-top: 20px; }
+
+    .deco-text { position: absolute; top: 10%; right: 5%; font-family: var(--f-serif); font-size: 15rem; color: white; opacity: 0.2; }
+
+    .narrative-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 100px; align-items: center; }
+    .n-visual { position: relative; }
+    .v-label { position: absolute; bottom: 0; left: 0; background: #000; color: #fff; padding: 5px 12px; font-family: monospace; font-size: 0.6rem; }
+    .n-content h3 { font-family: var(--f-serif); font-size: 3rem; margin-bottom: 20px; }
+    .n-content h3 span { color: var(--accent); }
+    .btn-read { margin-top: 30px; padding: 12px 25px; border: 1px solid #000; background: none; font-weight: 700; cursor: pointer; }
+
+    .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; height: 400px; }
+    .bento-item { background: #eee; overflow: hidden; position: relative; }
+    .b-3 { padding: 40px; background: #f5f5f5; }
+    .b-3 h4 { font-family: var(--f-serif); font-size: 2rem; margin-bottom: 10px; }
+
+    .editorial-footer { border-top: 2px solid #000; padding: 40px; display: flex; justify-content: space-between; align-items: center; }
+    .f-brand { font-family: var(--f-serif); font-weight: 900; }
+    .f-meta { font-family: monospace; font-size: 0.7rem; color: var(--muted); }
+    
