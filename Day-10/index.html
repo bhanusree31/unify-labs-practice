@@ -1,0 +1,60 @@
+
+    <!-- KINETIC TOUR PORTAL -->
+    <div id="tour-portal" class="tour-dim">
+        <div id="spotlight-layer" class="spotlight"></div>
+        <div id="tour-guide" class="guide-tooltip">
+            <div class="g-inner">
+                <header class="g-header"><span id="g-step-idx">01</span><h3 id="g-title">Welcome</h3></header>
+                <div class="g-body"><p id="g-text">Welcome to Aura. Let's initialize your environment.</p></div>
+                <footer class="g-footer">
+                    <button class="g-skip" onclick="Tour.end()">Skip</button>
+                    <button class="g-next" id="tour-next-btn" onclick="Tour.next()">Next &rarr;</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <div class="aura-shell">
+        <header class="aura-header">
+            <div class="a-brand"><div class="a-logo">A</div><span>AURA<span>ONBOARDING</span></span></div>
+            <div class="a-actions">
+                <button class="a-btn-tour" onclick="Tour.start()"><div class="a-pulse"></div> Take the Tour</button>
+                <div class="a-user"><span id="op-badge">GUEST_OPERATOR</span><div class="a-avatar"></div></div>
+            </div>
+        </header>
+
+        <main class="aura-content">
+            <aside class="aura-sidebar">
+                <div class="s-header"><h2>Workspace Setup</h2><div class="s-progress"><div class="s-p-bar"><div class="s-p-fill" id="f-progress"></div></div><span id="p-label">0% Complete</span></div></div>
+                <nav class="s-nav">
+                    <div class="s-item active" data-step="1"><div class="s-dot"></div><div class="s-text"><strong>Identity</strong><span>Profile</span></div></div>
+                    <div class="s-item" data-step="2"><div class="s-dot"></div><div class="s-text"><strong>Team</strong><span>Collaboration</span></div></div>
+                    <div class="s-item" data-step="3"><div class="s-dot"></div><div class="s-text"><strong>Node</strong><span>Region</span></div></div>
+                    <div class="s-item" data-step="4"><div class="s-dot"></div><div class="s-text"><strong>Launch</strong><span>Finalize</span></div></div>
+                </nav>
+            </aside>
+
+            <section class="aura-stage">
+                <div class="pane active" id="pane-1">
+                    <div class="p-intro"><h1>Establish <span>Identity</span></h1><p>Configure your administrative profile to begin synchronization.</p></div>
+                    <div class="f-group"><label>Operator Handle</label><input type="text" id="op-name" placeholder="E.g. Alexander Pierce"></div>
+                    <footer class="p-footer"><button class="btn-continue" onclick="Flow.next()">Next: Team Setup &rarr;</button></footer>
+                </div>
+                <div class="pane" id="pane-2">
+                    <div class="p-intro"><button class="btn-back" onclick="Flow.back()">&larr; Back</button><h1>Expand <span>Network</span></h1><p>Invite peers to increase throughput.</p></div>
+                    <div class="t-list" id="t-list"><div class="t-row"><input type="email" placeholder="colleague@aura.io"><button class="t-rem">✕</button></div></div>
+                    <button class="t-add" onclick="Flow.add()">+ Register Peer</button>
+                    <footer class="p-footer"><button class="btn-continue" onclick="Flow.next()">Next: Node Setup &rarr;</button></footer>
+                </div>
+                <div class="pane" id="pane-3">
+                    <div class="p-intro"><button class="btn-back" onclick="Flow.back()">&larr; Back</button><h1>Regional <span>Node</span></h1><p>Select your primary data residency.</p></div>
+                    <div class="n-grid"><div class="n-card active"><strong>AWS-EAST-1</strong><span>N. Virginia</span></div><div class="n-card"><strong>GCP-EURO-4</strong><span>Frankfurt</span></div></div>
+                    <footer class="p-footer"><button class="btn-continue" onclick="Flow.next()">Finalize &rarr;</button></footer>
+                </div>
+                <div class="pane" id="pane-4">
+                    <div class="p-launch"><div class="l-orb"></div><h1>Aura <span>Online</span></h1><p>All clusters responding.</p><button class="btn-launch" onclick="location.reload()">ENTER WORKSPACE</button></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    

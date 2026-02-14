@@ -1,0 +1,60 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+        --primary: #000000; --brand: #6366f1; --bg: #ffffff; --bg-alt: #f9fafb; --border: #e5e7eb;
+        --text: #111827; --text-muted: #6b7280; --radius-xl: 24px; --radius-md: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #000; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+    .aura-shell { width: 95%; max-width: 1000px; height: 80vh; background: var(--bg); border-radius: var(--radius-xl); display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); position: relative; }
+    
+    .aura-header { height: 70px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+    .a-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+    .a-logo { width: 28px; height: 28px; background: #000; color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .a-brand span span { color: var(--text-muted); font-size: 0.6rem; margin-left: 8px; font-family: 'JetBrains Mono'; }
+
+    .a-actions { display: flex; align-items: center; gap: 20px; }
+    .a-btn-tour { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 50px; display: flex; align-items: center; gap: 8px; }
+    .a-pulse { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; animation: p-kf 2s infinite; }
+    @keyframes p-kf { 0% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); } 100% { box-shadow: 0 0 0 15px rgba(99,102,241,0); } }
+
+    .aura-content { flex: 1; display: grid; grid-template-columns: 280px 1fr; overflow: hidden; }
+    .aura-sidebar { background: var(--bg-alt); padding: 40px 30px; border-right: 1px solid var(--border); }
+    .s-header h2 { font-size: 1rem; margin-bottom: 15px; }
+    .s-p-bar { height: 6px; background: #e5e7eb; border-radius: 10px; overflow: hidden; }
+    .s-p-fill { height: 100%; width: 0; background: var(--brand); transition: 0.5s; }
+    #p-label { font-size: 0.65rem; color: var(--text-muted); font-weight: 700; margin-top: 5px; display: block; }
+
+    .s-nav { margin-top: 40px; display: flex; flex-direction: column; gap: 25px; }
+    .s-item { display: flex; align-items: center; gap: 15px; opacity: 0.3; transition: 0.3s; }
+    .s-item.active { opacity: 1; transform: translateX(5px); }
+    .s-dot { width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background: #fff; }
+    .s-item.active .s-dot { background: #000; }
+    .s-text strong { display: block; font-size: 0.85rem; }
+    .s-text span { font-size: 0.7rem; color: var(--text-muted); }
+
+    .aura-stage { padding: 60px 80px; overflow-y: auto; }
+    .pane { display: none; }
+    .pane.active { display: block; animation: side-in 0.4s ease-out; }
+    @keyframes side-in { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+    .p-intro h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: -1px; }
+    .p-intro h1 span { color: var(--brand); }
+    .p-intro p { color: var(--text-muted); margin-bottom: 40px; }
+
+    .f-group label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    input { width: 100%; height: 50px; padding: 0 15px; border: 2px solid var(--border); border-radius: var(--radius-md); font-size: 1rem; }
+    input:focus { border-color: var(--brand); outline: none; }
+
+    .btn-continue { width: 100%; height: 55px; background: #000; color: #fff; border-radius: var(--radius-md); font-weight: 800; margin-top: 30px; }
+    
+    .l-orb { width: 80px; height: 80px; background: var(--brand); border-radius: 50%; margin: 0 auto 30px; box-shadow: 0 0 50px rgba(99,102,241,0.5); }
+    .p-launch { text-align: center; padding-top: 40px; }
+
+    .tour-dim { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 10000; display: none; }
+    .spotlight { position: absolute; border-radius: 12px; box-shadow: 0 0 0 9999px rgba(0,0,0,0.7); pointer-events: none; transition: 0.4s; }
+    .guide-tooltip { position: absolute; width: 300px; background: #fff; padding: 25px; border-radius: 15px; z-index: 10001; transition: 0.4s; }
+    
