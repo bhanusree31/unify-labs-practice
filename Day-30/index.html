@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TITAN — Digital Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <span class="brand__mark">T</span>
+        <span class="brand__text">TITAN</span>
+        <span class="brand__tag">Digital Marketplace</span>
+      </a>
+
+      <div class="searchbar">
+        <input id="searchInput" type="search" placeholder="Search products… (e.g., shoes, headphones)" autocomplete="off"/>
+        <div class="searchbar__hint" id="searchHint">Type to filter instantly</div>
+      </div>
+
+      <button class="cartBtn" id="openCartBtn" aria-label="Open cart">
+        <span class="cartBtn__icon">🛒</span>
+        <span class="cartBtn__label">Cart</span>
+        <span class="cartBtn__badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__left">
+        <h1>Shop smarter. Checkout faster.</h1>
+        <p>
+          TITAN is a modern, high-performance store experience:
+          instant search, category browsing, persistent cart, and secure order submission.
+        </p>
+
+        <div class="pillRow" id="categoryPills">
+          <button class="pill is-active" data-category="">All</button>
+          <button class="pill" data-category="electronics">Electronics</button>
+          <button class="pill" data-category="fashion">Fashion</button>
+          <button class="pill" data-category="home">Home</button>
+          <button class="pill" data-category="beauty">Beauty</button>
+          <button class="pill" data-category="grocery">Grocery</button>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section class="toolbar">
+      <div class="toolbar__left">
+        <span class="toolbar__title">Products</span>
+        <span class="toolbar__count" id="resultCount">—</span>
+      </div>
+      <div class="toolbar__right">
+        <select id="sortSelect" class="select">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="price_asc">Price: Low → High</option>
+          <option value="price_desc">Price: High → Low</option>
+          <option value="rating_desc">Rating: High → Low</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+
+    <section id="emptyState" class="emptyState hidden">
+      <div class="emptyState__icon">🔎</div>
+      <div class="emptyState__title">No matches found</div>
+      <div class="emptyState__text">Try another search term or switch categories.</div>
+      <button class="btn" id="resetFiltersBtn">Reset filters</button>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__backdrop" id="drawerBackdrop"></div>
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+      <div class="drawer__header">
+        <div>
+          <div class="drawer__title">Your Cart</div>
+          <div class="drawer__subtitle" id="cartSubtitle">—</div>
+        </div>
+        <button class="iconBtn" id="closeCartBtn" aria-label="Close cart">✕</button>
+      </div>
+
+      <div class="drawer__body" id="cartItems"></div>
+
+      <div class="drawer__footer">
+        <div class="totals">
+          <div class="totals__row">
+            <span>Subtotal</span>
+            <strong id="subtotal">₹0</strong>
+          </div>
+          <div class="totals__row">
+            <span>Shipping</span>
+            <strong id="shipping">₹0</strong>
+          </div>
+          <div class="totals__row totals__row--big">
+            <span>Total</span>
+            <strong id="total">₹0</strong>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" id="checkoutBtn">Proceed to Checkout</button>
+        <button class="btn btn--ghost" id="clearCartBtn">Clear Cart</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal hidden" id="checkoutModal" aria-hidden="true">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Checkout">
+      <div class="modal__header">
+        <div>
+          <div class="modal__title">Checkout</div>
+          <div class="modal__subtitle">Enter your details to place the order</div>
+        </div>
+        <button class="iconBtn" id="closeModalBtn" aria-label="Close checkout">✕</button>
+      </div>
+
+      <form id="checkoutForm" class="form">
+        <label class="field">
+          <span>Name</span>
+          <input name="name" required minlength="2" maxlength="80" placeholder="Akhil Steven" />
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" required maxlength="120" placeholder="akhil@example.com" />
+        </label>
+
+        <label class="field">
+          <span>Address</span>
+          <textarea name="address" required minlength="8" maxlength="200" placeholder="Flat, Street, City, State, Pincode"></textarea>
+        </label>
+
+        <button class="btn btn--primary" type="submit" id="placeOrderBtn">
+          <span class="btn__text">Place Order</span>
+          <span class="btn__spinner hidden" id="orderSpinner"></span>
+        </button>
+        <p class="form__note">
+          🔒 Total is calculated on the server to prevent tampering.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
