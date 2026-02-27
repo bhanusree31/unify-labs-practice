@@ -1,0 +1,507 @@
+/* ==========================================================
+   ZENITH — Premium Neutral Theme (Portfolio-Grade)
+   Covers:
+   - Card Grid layout
+   - Single post view typography
+   - Editor form styling
+   - Smooth hover effects
+   - Dark/Light mode support
+   - Responsive + accessible focus
+   ========================================================== */
+
+/* ---------- Theme Tokens ---------- */
+:root{
+  --bg: #0b0d12;
+  --bg2:#0f1320;
+  --text:#eef2ff;
+  --muted:#a7b0c3;
+  --border: rgba(255,255,255,.10);
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.10);
+
+  --accent:#22c55e;     /* fresh premium green */
+  --accent2:#60a5fa;    /* calm blue */
+  --danger:#fb7185;
+
+  --r-xl: 24px;
+  --r-lg: 18px;
+  --r-md: 14px;
+
+  --shadow: 0 24px 70px rgba(0,0,0,.55);
+  --shadow2: 0 12px 30px rgba(0,0,0,.35);
+
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --tfast: 140ms;
+  --tmed: 220ms;
+
+  --focus: 0 0 0 4px rgba(34,197,94,.18);
+}
+
+[data-theme="light"]{
+  --bg:#f7f8fb;
+  --bg2:#ffffff;
+  --text:#0b1020;
+  --muted:#5b6477;
+  --border: rgba(12,18,32,.10);
+  --panel: rgba(12,18,32,.04);
+  --panel2: rgba(12,18,32,.06);
+
+  --accent:#16a34a;
+  --accent2:#2563eb;
+  --danger:#e11d48;
+
+  --shadow: 0 18px 52px rgba(12,18,32,.14);
+  --shadow2: 0 10px 26px rgba(12,18,32,.12);
+
+  --focus: 0 0 0 4px rgba(22,163,74,.18);
+}
+
+*{box-sizing:border-box}
+html, body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(900px 520px at 15% 8%, rgba(96,165,250,.18), transparent 60%),
+              radial-gradient(900px 520px at 85% 10%, rgba(34,197,94,.14), transparent 60%),
+              linear-gradient(180deg, var(--bg), var(--bg2));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a{ color: inherit; text-decoration: none; }
+.hidden{ display:none !important; }
+.muted{ color: var(--muted); }
+
+/* ---------- Topbar ---------- */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.brand{ display:flex; gap:12px; align-items:center; }
+.logo{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  color: #041008;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: var(--shadow2);
+}
+.brand-title{
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.brand-sub{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.actions{ display:flex; gap:10px; }
+
+/* ---------- Shell ---------- */
+.shell{
+  max-width: 1120px;
+  margin: 22px auto;
+  padding: 0 16px;
+}
+.view{
+  min-height: calc(100vh - 190px);
+}
+
+/* ---------- Headings + Layout ---------- */
+.view-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  margin: 12px 0 16px;
+}
+h1{
+  margin:0;
+  font-size: clamp(22px, 2.2vw, 32px);
+  letter-spacing: -0.05em;
+}
+
+/* ---------- Inputs ---------- */
+.filters{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+.input,.select,.textarea{
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--r-md);
+  padding: 11px 12px;
+  outline: none;
+  transition: border-color var(--tfast) var(--ease),
+              background var(--tfast) var(--ease),
+              box-shadow var(--tfast) var(--ease);
+}
+.input::placeholder,.textarea::placeholder{
+  color: color-mix(in srgb, var(--muted) 88%, transparent);
+}
+.input:focus,.select:focus,.textarea:focus{
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: var(--panel2);
+  box-shadow: var(--focus);
+}
+.select{ min-width: 190px; }
+.textarea{
+  width:100%;
+  min-height: 260px;
+  resize: vertical;
+  line-height: 1.75;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  cursor:pointer;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  transition: transform var(--tfast) var(--ease),
+              background var(--tfast) var(--ease),
+              border-color var(--tfast) var(--ease),
+              box-shadow var(--tmed) var(--ease);
+}
+.btn:hover{
+  transform: translateY(-1px);
+  background: var(--panel2);
+  border-color: color-mix(in srgb, var(--accent2) 35%, var(--border));
+  box-shadow: var(--shadow2);
+}
+.btn:active{ transform: translateY(0px); }
+.btn.ghost{ background: transparent; }
+.btn.danger{
+  border-color: color-mix(in srgb, var(--danger) 55%, var(--border));
+  background: color-mix(in srgb, var(--danger) 12%, var(--panel));
+  color: color-mix(in srgb, var(--danger) 92%, var(--text));
+}
+
+/* ---------- Grid + Cards ---------- */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.card{
+  grid-column: span 4;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  border-radius: var(--r-xl);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform var(--tmed) var(--ease),
+              border-color var(--tfast) var(--ease),
+              box-shadow var(--tmed) var(--ease);
+  position: relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(600px 120px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+              radial-gradient(600px 120px at 80% 0%, rgba(34,197,94,.14), transparent 60%);
+  opacity: .9;
+  pointer-events:none;
+}
+.card:hover{
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  box-shadow: 0 34px 92px rgba(0,0,0,.45);
+}
+
+.card-top{
+  position: relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.pill{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel2) 70%, transparent);
+}
+.dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+}
+
+.card h3{
+  position: relative;
+  margin: 10px 0 10px;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+.card p{
+  position: relative;
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.card-actions{
+  position: relative;
+  margin-top: 14px;
+  display:flex;
+  gap:10px;
+}
+
+/* ---------- Empty State ---------- */
+.empty{
+  margin-top: 24px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-xl);
+  padding: 18px;
+  background: color-mix(in srgb, var(--panel2) 55%, transparent);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* ---------- Single Post View ---------- */
+.post-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin: 10px 0 14px;
+}
+.post-actions{ display:flex; gap:10px; }
+
+.post{
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  border-radius: var(--r-xl);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.post-meta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.post h2{
+  margin: 12px 0 12px;
+  font-size: clamp(24px, 2.6vw, 40px);
+  letter-spacing: -0.06em;
+  line-height: 1.12;
+}
+.post-content{
+  white-space: pre-wrap;
+  line-height: 1.9;
+  font-size: 15px;
+  color: color-mix(in srgb, var(--text) 85%, var(--muted));
+}
+
+/* ---------- Editor ---------- */
+.form{ max-width: 780px; }
+.field{ display:block; margin-bottom: 14px; }
+.label{
+  display:block;
+  margin: 0 0 6px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.form-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top: 6px;
+}
+.hint{ margin-top: 10px; font-size: 12px; color: var(--muted); }
+
+/* ---------- Toast ---------- */
+.toast{
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow2);
+  max-width: min(560px, calc(100vw - 28px));
+}
+
+/* ---------- Footer ---------- */
+.footer{
+  padding: 18px 16px 28px;
+  text-align:center;
+  color: var(--muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .card{ grid-column: span 6; }
+  .view-head{ flex-direction: column; align-items: stretch; }
+  .filters{ width:100%; }
+}
+@media (max-width: 620px){
+  .card{ grid-column: span 12; }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* ==========================================================
+   Zenith Enhancements (Safe Add-on)
+   - Glassmorphism
+   - Ambient particles (CSS only)
+   - Soft entrance animations + transitions
+   ========================================================== */
+
+/* 1) Glassmorphism boost (applies to your existing classes) */
+.topbar,
+.card,
+.post,
+.toast,
+.input,
+.select,
+.textarea {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Make surfaces feel like real “glass” */
+.card,
+.post,
+.toast {
+  background: color-mix(in srgb, var(--panel2) 70%, transparent);
+}
+
+/* 2) Premium motion: consistent transitions */
+.card,
+.post,
+.btn,
+.input,
+.select,
+.textarea {
+  transition:
+    transform var(--tmed) var(--ease),
+    box-shadow var(--tmed) var(--ease),
+    border-color var(--tfast) var(--ease),
+    background var(--tfast) var(--ease),
+    filter var(--tfast) var(--ease);
+}
+
+/* Slight glow on hover (subtle, professional) */
+.card:hover {
+  filter: saturate(1.02);
+}
+
+/* Buttons get a gentle “press” */
+.btn:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* 3) Page entrance animation (no layout change) */
+@keyframes zenithFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.view { animation: zenithFadeUp 320ms var(--ease) both; }
+
+/* 4) Ambient particles (CSS only, safe + lightweight)
+      NOTE: uses pseudo-elements on body, no HTML changes */
+body::after{
+  content:"";
+  position: fixed;
+  inset: -40px;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,0.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.07) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 75%, rgba(255,255,255,0.06) 0 1px, transparent 2px),
+    radial-gradient(circle at 10% 90%, rgba(255,255,255,0.06) 0 1px, transparent 2px);
+  background-size:
+    220px 220px,
+    260px 260px,
+    320px 320px,
+    380px 380px,
+    420px 420px;
+  animation: zenithDrift 18s linear infinite;
+  mix-blend-mode: screen;
+}
+[data-theme="light"] body::after{
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+}
+
+/* Particle drift */
+@keyframes zenithDrift{
+  0%   { transform: translate3d(0,0,0); }
+  50%  { transform: translate3d(-12px, 18px, 0); }
+  100% { transform: translate3d(0,0,0); }
+}
+
+/* 5) Optional: fancy “shine” sweep on cards (very subtle) */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+  pointer-events:none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.06) 15%,
+    transparent 30%,
+    transparent 100%
+  );
+  transform: translateX(-60%);
+  opacity: 0;
+  transition: opacity var(--tfast) var(--ease), transform 700ms var(--ease);
+}
+.card:hover::after{
+  opacity: 1;
+  transform: translateX(60%);
+}
+
+/* 6) Respect reduced-motion users */
+@media (prefers-reduced-motion: reduce){
+  body::after{ animation: none !important; }
+  .view{ animation: none !important; }
+  .card::after{ display:none !important; }
+}

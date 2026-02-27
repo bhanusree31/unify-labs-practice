@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zenith CMS — The Blogger Core</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">Z</div>
+      <div>
+        <div class="brand-title">Zenith CMS</div>
+        <div class="brand-sub">The Blogger Core</div>
+      </div>
+    </div>
+
+    <nav class="actions">
+      <button class="btn ghost" id="btnHome" type="button">Home</button>
+      <button class="btn" id="btnNew" type="button">New Post</button>
+      <button class="btn ghost" id="btnTheme" type="button" aria-label="Toggle theme">
+        <span id="themeLabel">Dark</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <!-- Grid -->
+    <section id="viewGrid" class="view">
+      <div class="view-head">
+        <h1>Latest Posts</h1>
+
+        <div class="filters">
+          <input id="searchInput" class="input" type="search" placeholder="Search title or category…" />
+          <select id="categoryFilter" class="select">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="blogGrid" class="grid" aria-live="polite"></div>
+
+      <div id="emptyState" class="empty hidden">
+        <p>No posts yet. Create your first article.</p>
+        <button class="btn" id="btnEmptyCreate" type="button">Create Post</button>
+      </div>
+    </section>
+
+    <!-- Single Post View -->
+    <section id="viewPost" class="view hidden">
+      <div class="post-top">
+        <button class="btn ghost" id="btnBack" type="button">← Back</button>
+        <div class="post-actions">
+          <button class="btn ghost" id="btnEdit" type="button">Edit</button>
+          <button class="btn danger" id="btnDelete" type="button">Delete</button>
+        </div>
+      </div>
+
+      <article class="post">
+        <div class="post-meta">
+          <span class="pill" id="postCategory">—</span>
+          <span class="muted" id="postDate">—</span>
+        </div>
+
+        <h2 id="postTitle">—</h2>
+        <div id="postContent" class="post-content"></div>
+      </article>
+    </section>
+
+    <!-- Editor -->
+    <section id="viewEditor" class="view hidden">
+      <div class="view-head">
+        <h1 id="editorHeading">New Post</h1>
+        <p class="muted">Create or update an article using the editor below.</p>
+      </div>
+
+      <form id="postForm" class="card form">
+        <label class="field">
+          <span class="label">Title</span>
+          <input class="input" id="titleInput" maxlength="120" required placeholder="e.g., Building a REST API with MongoDB Atlas" />
+        </label>
+
+        <label class="field">
+          <span class="label">Category</span>
+          <input class="input" id="categoryInput" maxlength="40" required placeholder="e.g., Backend, DevOps, Career" />
+        </label>
+
+        <label class="field">
+          <span class="label">Content</span>
+          <textarea class="textarea" id="contentInput" maxlength="15000" required placeholder="Write your post content here…"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button class="btn ghost" id="btnCancel" type="button">Cancel</button>
+          <button class="btn" id="btnSave" type="submit">Save</button>
+        </div>
+
+        <div class="hint muted">Tip: Content is stored as plain text to keep it safe and clean.</div>
+      </form>
+    </section>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <span class="muted">Built by BHANU SREE REDDY</span>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
